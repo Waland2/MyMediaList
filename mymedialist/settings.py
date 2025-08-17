@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-ITEMS_PER_PAGE = 25
+
+ITEMS_PER_PAGE = 10
 MEDIA_ENTITY_SLUG = "item"
 MEDIA_COLLECTION_SLUG = "catalogue"
 

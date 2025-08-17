@@ -1,34 +1,161 @@
 {% extends 'main/layout.html' %}
 {% load static %}
 
-{% block title %}Add Item{% endblock %}
+{% block title %}
+  {% if request.resolver_match.url_name == 'editmedia' %}
+    Edit Item
+  {% else %}
+    Add Item
+  {% endif %}
+{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'editor/css/media_form.css' %}">
-<script src="{% static 'editor/js/media_form.js' %}"></script>
+<script defer src="{% static 'editor/js/media_form.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-<main>  
-    <span class="page-heading">Add New Item</span>
-    <form method="post" class="media-item-form" enctype="multipart/form-data">
-        {% csrf_token %}
-        <!-- {{ form.as_p }} -->
-        {% for i in form %}
-        
-        <p class="label">
-            {{i.label}}
-        </p>
-        <p class="input">
-            {{i}}          
-        </p>
-        <p class="input-errors">
-            {{i.errors}}
-        </p>
-        {% endfor %}
-    
-        <button type="submit" class="submit-btn">Save</button>
-    </form>
+<main>
+  <span class="page-heading">
+    {% if request.resolver_match.url_name == 'editmedia' %}
+      Edit Item
+    {% else %}
+      Add New Item
+    {% endif %}
+  </span>
 
+  <form method="post" class="media-item-form" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+      <div class="form-alert">
+        {{ form.non_field_errors }}
+      </div>
+    {% endif %}
+
+    {# BASICS #}
+    <section class="form-section">
+      <h3>Basics</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+          {{ form.title }}
+          <div class="help">Use the official English title.</div>
+          {{ form.title.errors }}
+        </div>
+
+        <div class="field">
+          <label for="{{ form.type.id_for_label }}">{{ form.type.label }}</label>
+          {{ form.type }}
+          {{ form.type.errors }}
+        </div>
+
+        <div class="field">
+          <label for="{{ form.status.id_for_label }}">{{ form.status.label }}</label>
+          {{ form.status }}
+          {{ form.status.errors }}
+        </div>
+
+        <div class="field field--full">
+          <label for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+          <div class="with-counter">
+            {{ form.description }}
+            <div class="char-counter" id="desc-counter">0</div>
+          </div>
+          <div class="help">Short synopsis.</div>
+          {{ form.description.errors }}
+        </div>
+      </div>
+    </section>
+
+    {# RELEASE #}
+    <section class="form-section">
+      <h3>Release</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="{{ form.start_year.id_for_label }}">{{ form.start_year.label }}</label>
+          {{ form.start_year }}
+          {{ form.start_year.errors }}
+        </div>
+
+        <div class="field">
+          <label for="{{ form.end_year.id_for_label }}">{{ form.end_year.label }}</label>
+          {{ form.end_year }}
+          <div class="help">End date cannot be before start date.</div>
+          {{ form.end_year.errors }}
+        </div>
+
+        <div class="field type-series-only">
+          <label for="{{ form.number_of_seasons.id_for_label }}">{{ form.number_of_seasons.label }}</label>
+          {{ form.number_of_seasons }}
+          {{ form.number_of_seasons.errors }}
+        </div>
+
+        <div class="field type-series-only">
+          <label for="{{ form.number_of_series.id_for_label }}">{{ form.number_of_series.label }}</label>
+          {{ form.number_of_series }}
+          {{ form.number_of_series.errors }}
+        </div>
+      </div>
+    </section>
+
+    {# ATTRIBUTES #}
+    <section class="form-section">
+      <h3>Attributes</h3>
+      <div class="form-grid">
+        <div class="field field--full">
+          <label>Genres</label>
+          <div class="chips-filter">
+            <input id="genre-filter" type="text" placeholder="Filter genres…" autocomplete="off">
+          </div>
+          <div class="checkbox-select-multiple" id="genres-box">
+            {{ form.genres }}
+          </div>
+          {{ form.genres.errors }}
+        </div>
+
+        <div class="field field--full">
+          <label for="{{ form.studios.id_for_label }}">{{ form.studios.label }}</label>
+          <div class="chips-filter">
+            <input id="studio-filter" type="text" placeholder="Начните вводить… и нажмите Enter" autocomplete="off">
+          </div>
+          <div id="studio-chips" class="chips"></div>
+          {{ form.studios }}
+          {{ form.studios.errors }}
+          <div class="help">Поддерживается поиск и выбор нескольких студий. Удаление — кликом по × на теге.</div>
+        </div>
+      </div>
+    </section>
+
+    {# COVER #}
+    <section class="form-section">
+      <h3>Cover</h3>
+      <div class="form-grid">
+        <div class="field field--full">
+          <label for="{{ form.cover.id_for_label }}">{{ form.cover.label }}</label>
+          <div class="dropzone" id="cover-drop">
+            <div class="dropzone__hint">
+              Drop JPG (380×562) here or click to select.
+              <span class="dz-sub">We will auto-convert to 380×562 JPEG if needed.</span>
+            </div>
+            {{ form.cover }}
+            <img id="cover-preview" class="cover-preview" alt="Preview" style="display:none;">
+          </div>
+          {{ form.cover.errors }}
+        </div>
+      </div>
+    </section>
+
+    <div class="form-actions--sticky">
+      <a class="btn-secondary" href="{% url 'home' %}">Cancel</a>
+      <button type="submit" class="submit-btn">
+        {% if request.resolver_match.url_name == 'editmedia' %}
+          Save Changes
+        {% else %}
+          Save
+        {% endif %}
+      </button>
+    </div>
+  </form>
 </main>
-{% endblock content %}
+{% endblock %}

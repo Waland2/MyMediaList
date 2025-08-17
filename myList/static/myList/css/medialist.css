@@ -1,0 +1,152 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.ml-content {
+    width: 90%;
+    margin: auto;
+}
+
+.select-status {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 6px;
+    height: 38.4px;
+}
+
+.status-opt {
+    font-weight: 700;
+    user-select: none;
+    transition: 0.15s;
+    border-radius: 8px;
+    align-self: center;
+    padding: 8px 15px;
+}
+
+.status-opt:hover {
+    transition: 0.15s;
+    color: rgb(30, 30, 30);
+    background-color: rgb(213, 213, 213);
+
+}
+
+
+.status-opt.selected{
+    border: 1px solid rgb(65, 141, 255);
+}
+
+.mylist {
+    border-collapse: separate;
+    border-spacing: 0px 2px;
+    margin: auto;
+    width: 70%;
+}
+
+.table-head {
+    font-family: 'OpenSans';
+    font-size: 14px;
+    font-weight: 700;
+    background-color: rgb(226, 226, 226);
+}
+
+.table-head td {
+    padding: 5px 10px;
+    cursor: pointer;
+    text-wrap: nowrap;
+}
+
+.table-head td:hover {
+    text-decoration: underline;
+}
+
+
+.table-content td {
+    padding: 4px 0;
+    border-bottom: 1px solid rgb(197, 197, 197);
+    font-size: 15px;
+}
+
+.table-content {
+    transition: 0.15s;
+}
+
+.table-content:nth-of-type(2n + 1) {
+    background-color: rgb(252, 252, 252);
+}
+
+
+.table-content:hover {
+    transition: 0.15s;
+    background-color: rgb(235, 235, 235);
+}
+
+.table-content a {
+    color: #1D439B;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.table-content a:hover {
+    color: #11275a;
+}
+
+.t-index,.t-cover,.t-score {
+    text-align: center;
+}
+
+.t-index {
+    font-size: 13px;
+}
+
+.t-comment {
+    font-size: 13px;
+    color: gray;
+}
+
+.t-score {
+    font-weight: 700;
+    color: #1D439B;
+}
+
+.t-status1 {
+    border-left: 5px solid green;
+}
+
+.t-status2 {
+    border-left: 5px solid #26448f;
+}
+
+.t-status3 {
+    border-left: 5px solid #f1c83e;
+}
+
+.t-status4 {
+    border-left: 5px solid #a12f31;
+}
+
+.t-status5 {
+    border-left: 5px solid #c3c3c3;
+}
+
+
+.privat-list-div {
+    border-radius: 10px;
+    margin-top: 120px;
+    padding: 100px;
+    background-color: #ffff0017;
+    display: inline-block;
+    margin-inline: auto;
+}
+
+
+.sort-arrow {
+    width: 14px;
+    vertical-align: middle;
+}
+
+.sort-arrow.reverse {
+    transform: rotate(180deg);
+}

@@ -1,0 +1,392 @@
+[
+{
+  "model": "main.genre",
+  "pk": 1,
+  "fields": {
+    "name": "Вестерн",
+    "name": "Western",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 2,
+  "fields": {
+    "name": "Военный",
+    "name": "Military",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 3,
+  "fields": {
+    "name": "Детектив",
+    "name": "Detective",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 4,
+  "fields": {
+    "name": "Детский",
+    "name": "Сhildrens",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 5,
+  "fields": {
+    "name": "Документальный",
+    "name": "Documentary",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 6,
+  "fields": {
+    "name": "Драма",
+    "name": "Drama",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 7,
+  "fields": {
+    "name": "Исторический",
+    "name": "Historical",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 8,
+  "fields": {
+    "name": "Комедия",
+    "name": "Comedy",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 9,
+  "fields": {
+    "name": "Криминал",
+    "name": "Crime",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 10,
+  "fields": {
+    "name": "Мюзикл",
+    "name": "Musical",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 11,
+  "fields": {
+    "name": "Приключения",
+    "name": "Adventure",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 12,
+  "fields": {
+    "name": "Триллер",
+    "name": "Thriller",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 13,
+  "fields": {
+    "name": "Хоррор",
+    "name": "Horror",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 14,
+  "fields": {
+    "name": "Научная фантастика",
+    "name": "Sci-fi",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 15,
+  "fields": {
+    "name": "Фэнтези",
+    "name": "Fantasy",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 16,
+  "fields": {
+    "name": "Экшен",
+    "name": "Action",
+    "description": ""
+  }
+},
+{
+  "model": "main.genre",
+  "pk": 17,
+  "fields": {
+    "name": "Семейный",
+    "name": "Family",
+    "description": ""
+  }
+},
+{
+  "model": "main.type",
+  "pk": 1,
+  "fields": {
+    "name": "Сериал",
+    "name": "Series",
+    "description": ""
+  }
+},
+{
+  "model": "main.type",
+  "pk": 2,
+  "fields": {
+    "name": "Фильм",
+    "name": "Movie",
+    "description": ""
+  }
+},
+{
+  "model": "main.type",
+  "pk": 3,
+  "fields": {
+    "name": "Короткометражка",
+    "name": "Short Film",
+    "description": ""
+  }
+},
+{
+  "model": "main.status",
+  "pk": 1,
+  "fields": {
+    "name": "Закончен",
+    "name": "Finished",
+    "description": ""
+  }
+},
+{
+  "model": "main.status",
+  "pk": 2,
+  "fields": {
+    "name": "Выпускается",
+    "name": "Ongoing",
+    "description": ""
+  }
+},
+{
+  "model": "main.status",
+  "pk": 3,
+  "fields": {
+    "name": "Анонс",
+    "name": "Announced",
+    "description": ""
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 1,
+  "fields": {
+    "name": "Skybound Entertainment"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 2,
+  "fields": {
+    "name": "Point Grey Pictures"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 3,
+  "fields": {
+    "name": "Amazon MGM studio"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 4,
+  "fields": {
+    "name": "Disney Television Animation"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 5,
+  "fields": {
+    "name": "Glitch Productions"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 6,
+  "fields": {
+    "name": "Nerds"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 7,
+  "fields": {
+    "name": "A24"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 8,
+  "fields": {
+    "name": "Touchstone Pictures"
+  }
+},
+{
+  "model": "main.studio",
+  "pk": 9,
+  "fields": {
+    "name": "Laika"
+  }
+},
+{
+  "model": "myList.myliststatus",
+  "pk": 1,
+  "fields": {
+    "name": "Completed",
+    "priority_in_list": 2
+  }
+},
+{
+  "model": "myList.myliststatus",
+  "pk": 2,
+  "fields": {
+    "name": "Watching",
+    "priority_in_list": 1
+  }
+},
+{
+  "model": "myList.myliststatus",
+  "pk": 3,
+  "fields": {
+    "name": "On-hold",
+    "priority_in_list": 4
+  }
+},
+{
+  "model": "myList.myliststatus",
+  "pk": 4,
+  "fields": {
+    "name": "Plan to Watch",
+    "priority_in_list": 3
+  }
+},
+{
+  "model": "myList.myliststatus",
+  "pk": 5,
+  "fields": {
+    "name": "Dropped",
+    "priority_in_list": 5
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 1,
+  "fields": {
+    "value": 10,
+    "name": "Masterpiece"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 2,
+  "fields": {
+    "value": 9,
+    "name": "Magnificent"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 3,
+  "fields": {
+    "value": 8,
+    "name": "Great"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 4,
+  "fields": {
+    "value": 7,
+    "name": "Very Good"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 5,
+  "fields": {
+    "value": 6,
+    "name": "Good"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 6,
+  "fields": {
+    "value": 5,
+    "name": "Average"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 7,
+  "fields": {
+    "value": 4,
+    "name": "Bad"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 8,
+  "fields": {
+    "value": 3,
+    "name": "Very Bad"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 9,
+  "fields": {
+    "value": 2,
+    "name": "Terrible"
+  }
+},
+{
+  "model": "myList.mylistscores",
+  "pk": 10,
+  "fields": {
+    "value": 1,
+    "name": "Appalling"
+  }
+}
+]

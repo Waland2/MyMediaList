@@ -1,0 +1,68 @@
+services:
+  django:
+    container_name: mml_django
+    build: .
+    stdin_open: true
+    tty: true
+    command: >
+      sh -c "python3 manage.py migrate &&
+             python3 manage.py collectstatic --no-input &&
+             python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+      - ./static:/app/static
+      - ./media:/app/media
+    env_file:
+      - .env.dev
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+    restart: always
+    networks:
+      - dev
+      
+  redis:
+    image: redis:7-alpine
+    container_name: mml_redis
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - dev
+
+  celery_worker:
+    build: .
+    container_name: mml_celery_worker
+    command: celery -A mymedialist worker -l info
+    volumes:
+      - .:/app
+      - ./static:/app/static
+      - ./media:/app/media
+    env_file:
+      - .env.dev
+    depends_on:
+      - redis
+    restart: always
+    networks:
+      - dev
+
+  celery_beat:
+    build: .
+    container_name: mml_celery_beat
+    command: celery -A mymedialist beat -l info
+    volumes:
+      - .:/app
+      - ./static:/app/static
+      - ./media:/app/media
+    env_file:
+      - .env.dev
+    depends_on:
+      - redis
+    restart: always
+    networks:
+      - dev
+
+
+networks:
+  dev:

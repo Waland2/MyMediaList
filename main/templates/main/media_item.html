@@ -1,0 +1,217 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ data.title }} / {{ data.type }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/media_item.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<script>
+    let mediaItemId = {{data.id}};
+    let userID = 0;
+    {% if request.user.is_authenticated %}
+        userID = {{request.user.id}};
+    {% endif %}
+</script>
+
+<div class="c-title">
+    <span>{{ data.title }}</span>
+</div>
+<main>
+    
+    <aside class="left-aside">
+        {% if data.cover %}
+        <img src="{{data.cover.url}}" alt="Cover" class="media-cover">
+        {% else %}
+        <img class="media-cover" src="{% static 'main/images/covernotfound.png' %}" alt="Cover">
+        {% endif %}
+        
+        <div class="manage">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'editmedia' data.id %}" style="padding: 3px;">Edit information</a>
+            {% else %}
+            <a href="#" class="auth-error" style="padding: 3px;">Edit information</a>
+            {% endif %}
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <div class="addlist-block">
+            <button onclick="addToList()" class="addlist-btn">
+                {% if ml_item_info %}
+                Edit list    
+                {% else %}
+                Add to list
+                {% endif %}
+            </button>
+        </div>
+        <div class="ml-cancel hide">
+            <button onclick="hideList()" class="addlist-btn">Cancel</button>
+        </div>
+        {% else %}
+        <div class="addlist-block">
+            <button class="addlist-btn auth-error">Add to list</button>
+        </div>
+        {% endif %}
+
+
+        <div class="addlist-option hide">
+            <span class="al-key">
+                Status
+            </span>
+            <select name="ml-status" id="ml-status">
+                {% for i in ml_status %}
+                <option {% if i.id == ml_item_info.watch_status.id %}selected{% endif %} value="{{i.id}}">
+                    {{i}}
+                </option>
+                {% endfor %}
+            </select>
+
+            <span class="al-key">
+                Score
+            </span>
+            <select name="ml-score" id="ml-score">
+                <option value="null">-</option>
+                
+                {% for i in ml_scores %}
+                <option {% if i.id == ml_item_info.score.id %}selected{% endif %} value="{{i.id}}">{{i}}</option>
+                {% endfor %}
+            </select>
+
+            <span class="al-key">Comment</span>
+            <textarea name="ml-comment" id="ml-comment">{% if ml_item_info.comment %}{{ml_item_info.comment}}{% endif %}
+            </textarea>
+
+            <div class="al-buttons">
+                <button id="al-submit" onclick="ml_save()">Save</button>
+                <button id="al-delete" onclick="ml_delete()">Delete</button>
+            </div>
+        </div>
+    </aside>
+
+    <section class="c-description">
+        
+        <div class="info-and-rating-block">
+            <div class="c-info">
+                <span class="heading">Information</span>
+                
+                {% if data.type %}
+                <div class="line">
+                    <span class="info-type">Type:</span>
+                    <span class="info-ans">{{data.type.name}}</span>
+                </div>
+                {% endif %}
+
+                {% if data.status %}
+                <div class="line">
+                    <span class="info-type">Status:</span>
+                    <span class="info-ans status-{{data.status.id}}">{{data.status.name}}</span>
+                </div>
+                {% endif %}
+
+                {% if data.status %}
+                <div class="line">
+                    {% with start_year=data.start_year end_year=data.end_year %}
+                    {% if not end_year %}
+                        {% if data.status.name == "Announcement" %}
+                        <span class="info-type">Announced date:</span>
+                        <span class="info-ans">
+                            {% if start_year %}
+                                {{start_year}}
+                            {% else %}
+                                Unknown
+                            {% endif %}
+                        </span>
+                        {% elif data.type.name == "Series"%}
+                            <span class="info-type">Release dates:</span>
+                            <span class="info-ans">
+                                from {{ start_year }}
+                            </span>
+                        {% else %}
+                            <span class="info-type">Release date:</span>
+                            <span class="info-ans">{{ start_year }}</span>
+                        {% endif %}
+                    {% else %}
+                        <span class="info-type">Release dates:</span>
+                        <span class="info-ans">from {{start_year}} to {{end_year}}</span>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                {% endif %}
+
+
+                {% if data.genres %}
+                <div class="line">
+                    <span class="info-type">Genres:</span>
+                    <span class="info-ans">
+                        {% for g in data.genres.all %}
+                            <a href="{{g.get_absolute_url}}" class="gen">{{g.name}}</a>
+                        {% endfor %}
+                    </span>
+                </div>
+                {% endif %}
+
+
+                {% if data.studios %}
+                <div class="line">
+                    <span class="info-type">Studio:</span>
+                    <span class="info-ans">
+                        {% for i in data.studios.all %}
+                            <a href="{{i.get_absolute_url}}" class="stud">
+                                {{i}}
+                            </a>
+                        {% endfor %}
+                    </span>
+                </div>
+                {% endif %}
+
+                {% if data.type.name == "Series" and data.status.name != "Announcement" %}
+
+                <div class="line">
+                    <span class="info-type">Released:</span>
+                    <span class="info-ans">
+                        {{data.number_of_seasons}} {{seasons_word}} ({{data.number_of_series}} {{series_word}})
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="c-rating">
+                <span class="heading">Rating</span>
+                {% if data.rating %}
+                    <div class="rating-block">
+                        <div class="circle">
+                            <span class="score-in-circle">
+                                {{ data.rating|stringformat:".2f" }}
+                            </span>                            
+                        </div>
+                        <span style="font-size: 12px;
+                        margin-bottom: 10px;">({{data.number_of_ratings}} ratings)</span>
+                    </div>
+                {% else %}
+                    Not defined
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="about-and-other">
+            <div class="c-about">
+                <span class="heading">Description</span>
+                {% if data.description %}
+                <p>{{ data.description|linebreaksbr }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+    </section>
+
+    <aside>
+
+    </aside>
+
+
+    <script src="{% static 'main/js/media_item.js' %}"></script>
+</main>
+{% endblock %}

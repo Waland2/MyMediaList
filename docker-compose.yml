@@ -1,0 +1,111 @@
+version: "3.9"
+
+services:
+  django:
+    container_name: mml_django
+    build: .
+    stdin_open: true
+    tty: true
+    command: bash /app/entrypoint.sh
+    volumes:
+      - .:/app
+      - ./static:/app/static
+      - ./media:/app/media
+      - ./entrypoint.sh:/app/entrypoint.sh
+    env_file:
+      - .env.prod
+    depends_on:
+      - db
+      - redis
+    expose:
+      - "8000"
+    restart: always
+    networks:
+      - dev
+  redis:
+    image: redis:7-alpine
+    container_name: mml_redis
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - dev
+
+  db:
+    image: mysql:8.0
+    container_name: mml_db
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    env_file:
+      - .env.prod
+    restart: always
+    networks:
+      - dev
+
+  nginx:
+    build: ./nginx
+    container_name: mml_nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./static:/static:ro
+      - ./media:/media:ro
+      - aniton_certbot-etc:/etc/letsencrypt:ro
+      - aniton_certbot-www:/var/www/certbot:ro
+    depends_on:
+      - django
+    networks:
+      - dev
+  certbot:
+    image: certbot/certbot
+    container_name: mml_certbot
+    volumes:
+      - aniton_certbot-etc:/etc/letsencrypt
+      - aniton_certbot-www:/var/www/certbot
+  celery_worker:
+    build: .
+    container_name: mml_celery_worker
+    command: celery -A mymedialist worker -l info
+    volumes:
+      - .:/app
+      - ./static:/app/static
+      - ./media:/app/media
+    env_file:
+      - .env.prod
+    depends_on:
+      - db
+      - redis
+    restart: always
+    networks:
+      - dev
+
+  celery_beat:
+    build: .
+    container_name: mml_celery_beat
+    command: celery -A mymedialist beat -l info
+    volumes:
+      - .:/app
+      - ./static:/app/static
+      - ./media:/app/media
+    env_file:
+      - .env.prod
+    depends_on:
+      - db
+      - redis
+    restart: always
+    networks:
+      - dev
+
+volumes:
+  mysql_data:
+  certbot-var:
+  aniton_certbot-etc:
+    external: true
+  aniton_certbot-www:
+    external: true
+
+networks:
+  dev:

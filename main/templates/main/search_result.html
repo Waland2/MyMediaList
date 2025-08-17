@@ -1,0 +1,48 @@
+{% load static %}
+
+{% if search_result %}
+{% for cart in search_result %}
+    <a class="searched" href="{{cart.get_absolute_url}}">
+        {% if cart.cover %}
+        <img class="search-cover" src="{{cart.cover.url}}" alt="Cover">
+        {% else %}
+        <img class="search-cover" src="{% static 'main/images/covernotfound.png' %}" alt="Cover">
+        {% endif %}
+        
+        <div class="search-desc">
+            <span class="search-title">{{cart.title}}</span>
+            <div class="s-line">
+                <span class="s-line-type">Type:</span>
+                <span class="s-line-ans">{{cart.type.name}}</span>
+                <span class="s-line-ans status-{{cart.status.id}}">{{cart.status.name}}</span>
+            </div>
+            <div class="s-line">
+                <span class="s-line-type">Genres:</span>
+                <span class="s-line-ans">
+                    {% for g in cart.genres.all %}
+                        <span class="s-gen">{{g.name}}</span>
+                    {% endfor %}
+                </span>
+            </div>
+            <div class="s-line">
+                <span class="s-line-type">Release year:</span>
+                <span class="s-line-ans">
+                    {{cart.start_year.year}}
+                </span>
+            </div>
+        </div>
+    </a>
+{% endfor %}
+{% else %}
+    <div style="width: 100%;
+    box-sizing: border-box;
+    background-color: #f6f6f6;
+    margin-top: 5px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    padding: 5px;">
+        Nothing found :(
+    </div>
+{% endif %}

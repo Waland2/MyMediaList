@@ -1,0 +1,231 @@
+@font-face {
+    font-weight: 400; 
+    font-family: OpenSans;
+    src: url("../fonts/OpenSans-Regular.ttf");
+  }
+  
+@font-face {
+    font-weight: 700; 
+    font-family: OpenSans;
+    src: url("../fonts/OpenSans-Bold.ttf");
+}
+
+.c-title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-inline: 10px;
+}
+
+main {
+    align-items: flex-start;
+    padding-inline: 10px;
+    display: flex;
+}
+
+main *{
+    font-family: OpenSans;
+}
+
+.c-title span {
+    font-size: 30px;
+}
+
+.left-aside {
+    width: 20%;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.left-aside .hide {
+    display: none;
+}
+
+.manage {
+    margin-bottom: 10px;
+}
+
+.manage a{
+    color: gray;
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 13px;
+}
+
+.manage a:hover{
+    transition: 0.2s;
+    color: rgb(10, 10, 10);
+}
+
+.media-cover {
+    width: 95%;
+}
+
+.addlist-btn {
+    outline: none;
+    padding: 3px 6px;
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    transition: .2s;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.addlist-btn:hover {
+    transition: .2s;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    background-color: #f5f5f5;
+}
+
+.ml-cancel {
+    margin-bottom: 5px;
+}
+
+.addlist-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: auto;
+    border-top: 1px solid gray;
+    padding-top: 8px;
+    width: 90%;
+}
+
+.al-key {
+    color: rgb(79, 79, 79);
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.addlist-option select {
+    font-size: 13px;
+    outline: none;
+    padding: 1px 2px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: 0.15s;
+}
+
+
+.addlist-option select:hover {
+    transition: 0.15s;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+#ml-comment {
+    outline: none;
+    padding: 5px;
+    width: 90%;
+    height: 100px;
+    overflow-y: auto;
+    resize: none;
+    transition: 0.15s;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 12.5px;
+}
+
+#ml-comment:hover {
+    transition: 0.15s;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+}
+
+.al-buttons {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.al-buttons button {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 3px 6px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    color: white;
+}
+
+#al-submit {
+    background: rgb(17, 146, 54);
+    transition: 0.15s;
+}
+
+#al-submit:hover {
+    background: rgb(21, 180, 66);
+    transition: 0.15s;
+}
+
+#al-delete {
+    transition: 0.15s;
+    background: rgb(209, 41, 41);
+}
+
+#al-delete:hover {
+    transition: 0.15s;
+    background: rgb(249, 51, 51);
+    color: white;
+}
+
+.c-description {
+    width: 55%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info-and-rating-block {
+    display: flex;
+    width: 100%;
+}
+
+.info-and-rating-block>div{
+    width: 100%;
+}
+
+.c-info {
+    margin-right: 20px;
+}
+
+.line {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.info-type {
+    color: rgb(87, 87, 87);
+}
+
+.info-ans {
+    color: black;
+}
+
+.about-and-other {
+    width: 100%;
+}
+
+.about-and-other p{
+    margin-left: 10px;
+    color: black;
+    font-size: 13px;
+}
+
+
+.c-about {
+    line-height: 1.5;
+}
+
+.rating-block {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle {
+    margin-top: 5px;
+    padding: 45px;
+    padding-inline: 29.5px;
+    border: 5px solid #e2e8f0;
+    border-radius: 50%;
+    margin-bottom: 4px;
+}
+

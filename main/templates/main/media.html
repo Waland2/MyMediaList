@@ -1,0 +1,90 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}List of Media{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/media.css' %}">
+    <script src="{% static 'main/js/media.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <span class="page-heading">List of Media</span>
+    <div class="min-header">
+        
+        <div class="sortbyblock">
+            <p style="margin-right: 10px;">Sort by:</p>
+            <div class="sortopt">
+                <button data-sort-value="" data-sort-dir="" id="sort" onclick="showSortSelect()">
+                    <div>
+                        <span class="sort-typename">Rating</span>
+                        <span class="sort-typedir"><img src="{% static 'main/icons/arrow.svg' %}" alt=""></span>    
+                    </div>
+                </button>
+                
+                <div class="hiddenopt">
+                    <button class="sbtn" data-sort-type="rating">Rating</button>
+                    <button class="sbtn" data-sort-type="popularity">Popularity</button>
+                    <button class="sbtn" data-sort-type="release">Release date</button>
+                    <button class="sbtn" data-sort-type="title">Title</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-btn">
+            <a href="/editor/add/">Add New Media</a>
+        </div>
+    </div>
+ 
+    <section class="content">
+        <div class="catalogue">
+            {% include 'main/media_only.html' %}
+        </div>
+
+        <div class="open-filter-bar">
+            <span>Open bar</span>
+        </div>
+
+        <aside class="filter-setting">
+            <div style="display: flex; margin-bottom: 10px;">
+                <p onclick="resetFilters()" class="reset-filters">Reset filters</p>
+            </div>
+
+            <div class="f-status f-block">
+                <span class="heading">Status</span>
+
+                {% for i in c_status %}
+                <label class="f-line" for="{{i.name}}">
+                    <input type="checkbox" data-filtertype="status" id="{{i.name}}">
+                    <span>{{i.name}}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <div class="f-type f-block">
+                <span class="heading">Type</span>
+
+                {% for i in c_types %}
+                <label class="f-line" for="{{i.name}}">
+                    <input type="checkbox" data-filtertype="type" id="{{i.name}}">
+                    <span>{{i.name}}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <div class="f-genre f-block">
+                <span class="heading">Genres</span>
+                
+                {% for i in c_genres %}
+                <label class="f-line" for="{{i.name}}">
+                    <input type="checkbox" data-filtertype="genres" id="{{i.name}}">
+                    <span>{{i.name}}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </aside>
+    </section>
+</main>
+{% endblock %}

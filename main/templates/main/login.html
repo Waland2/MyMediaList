@@ -1,0 +1,51 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+<form action="." method="post" class="regform-block">
+    <div class="inputs-block">
+        <h3>Login</h3>
+        {% for i in log_form %}
+        <div class="form-line">
+            
+            <p class="label">
+                {{i.label}}
+            </p>
+            <p class="input">
+                {{i}}          
+            </p>
+            <p class="input-errors">
+                {{i.errors}}
+            </p>
+        </div>
+        {% endfor %}   
+        
+        {% if status == 'error' %}
+        <ul class="errorlist"><li>Invalid username or password.</li></ul>
+        {% endif %}
+        <div class="s-block">
+            <input class="submit-reg" type="submit" value="Log in">
+        </div>
+        
+        <hr>
+
+        <div class="flex-box-links">
+            <a class="link" href="{% url 'register' %}">Don't have an account?</a>
+        
+            <!-- <a class="link" href="{% url 'register' %}">Forgot your password?</a> -->
+        </div>
+        
+    </div>
+    
+    {% csrf_token %}
+    
+</form>
+
+{% endblock %}

@@ -1,0 +1,652 @@
+[
+    {
+        "model": "main.media",
+        "pk": 2,
+        "fields": {
+            "title": "Invincible",
+            "description": "Animated superhero series based on the Image Comics by Robert Kirkman.",
+            "type": 1,
+            "status": 2,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2021-03-26",
+            "end_year": "2025-03-13",
+            "number_of_seasons": 3,
+            "number_of_series": 24,
+            "cover": "covers/temp_1755398905.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                11,
+                6,
+                14
+            ],
+            "studios": [
+                1,
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 3,
+        "fields": {
+            "title": "The Boys",
+            "description": "A dark superhero satire where vigilantes take on corrupt superpowered celebrities.",
+            "type": 1,
+            "status": 2,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2019-07-26",
+            "end_year": "2024-07-18",
+            "number_of_seasons": 4,
+            "number_of_series": 32,
+            "cover": "covers/temp_1755398919.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                9,
+                14,
+                12
+            ],
+            "studios": [
+                2,
+                3
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 4,
+        "fields": {
+            "title": "Reacher",
+            "description": "Action crime series based on Lee Child’s Jack Reacher novels.",
+            "type": 1,
+            "status": 2,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2022-02-04",
+            "end_year": "2025-03-27",
+            "number_of_seasons": 3,
+            "number_of_series": 24,
+            "cover": "covers/temp_1755398927.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                9,
+                6,
+                12
+            ],
+            "studios": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 5,
+        "fields": {
+            "title": "Good Boys",
+            "description": "Comedy about three sixth-graders who ditch school and embark on an epic journey.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2019-08-16",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399309.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                8
+            ],
+            "studios": [
+                2
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 6,
+        "fields": {
+            "title": "The Tomorrow War",
+            "description": "A man is drafted into a future war to fight aliens, with humanity’s survival on the line.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2024-07-11",
+            "end_year": null,
+            "number_of_seasons": 2,
+            "number_of_series": 16,
+            "cover": "covers/temp_1755399490.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                14,
+                12
+            ],
+            "studios": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 7,
+        "fields": {
+            "title": "Air",
+            "description": "Ben Affleck’s sports-business drama about the birth of Air Jordan.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2023-04-05",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755398571.jpg",
+            "is_published": true,
+            "genres": [
+                6,
+                7
+            ],
+            "studios": [
+                3
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 8,
+        "fields": {
+            "title": "Moonlight",
+            "description": "Coming-of-age drama following Chiron through three stages of life.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2016-10-21",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399603.jpg",
+            "is_published": true,
+            "genres": [
+                6
+            ],
+            "studios": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 9,
+        "fields": {
+            "title": "Hereditary",
+            "description": "A family’s dark inheritance spirals into supernatural terror.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2018-06-08",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399648.jpg",
+            "is_published": true,
+            "genres": [
+                6,
+                13,
+                12
+            ],
+            "studios": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 10,
+        "fields": {
+            "title": "Ex Machina",
+            "description": "A programmer evaluates an advanced humanoid AI in a tense psychological sci-fi.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2015-04-24",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399703.jpg",
+            "is_published": true,
+            "genres": [
+                6,
+                14,
+                12
+            ],
+            "studios": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 11,
+        "fields": {
+            "title": "Uncut Gems",
+            "description": "A frantic NYC jeweler risks everything on a high-stakes bet.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2019-12-13",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399750.jpg",
+            "is_published": true,
+            "genres": [
+                9,
+                6,
+                12
+            ],
+            "studios": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 12,
+        "fields": {
+            "title": "Everything Everywhere All at Once",
+            "description": "A multiverse action-comedy about family, choices, and hot-dog fingers.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2022-03-25",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399783.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                8,
+                15,
+                14
+            ],
+            "studios": [
+                7
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 13,
+        "fields": {
+            "title": "The Sixth Sense",
+            "description": "A boy who sees dead people and the psychologist trying to help him.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "1999-08-06",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399841.jpg",
+            "is_published": true,
+            "genres": [
+                6,
+                12
+            ],
+            "studios": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 14,
+        "fields": {
+            "title": "Armageddon",
+            "description": "A ragtag crew races to stop a planet-killer asteroid.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "1998-07-01",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755398583.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                11,
+                14
+            ],
+            "studios": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 15,
+        "fields": {
+            "title": "Pearl Harbor",
+            "description": "A WWII romance and war epic centered on the attack of 1941.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2001-05-25",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399961.jpg",
+            "is_published": true,
+            "genres": [
+                6,
+                7,
+                2
+            ],
+            "studios": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 16,
+        "fields": {
+            "title": "Dead Poets Society",
+            "description": "An English teacher inspires students to seize the day.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "1989-06-02",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755399974.jpg",
+            "is_published": true,
+            "genres": [
+                6
+            ],
+            "studios": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 17,
+        "fields": {
+            "title": "Signs",
+            "description": "Crop circles herald an unsettling extraterrestrial threat.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2002-08-02",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755400000.jpg",
+            "is_published": true,
+            "genres": [
+                6,
+                14,
+                12
+            ],
+            "studios": [
+                8
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 18,
+        "fields": {
+            "title": "Coraline",
+            "description": "A girl discovers a sinister parallel world beyond a secret door.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2009-02-06",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755398624.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                15,
+                13
+            ],
+            "studios": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 19,
+        "fields": {
+            "title": "ParaNorman",
+            "description": "A boy who can speak to the dead must save his town from a curse.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2012-08-17",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755400115.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                8,
+                17,
+                13
+            ],
+            "studios": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 20,
+        "fields": {
+            "title": "The Boxtrolls",
+            "description": "An orphan boy raised by underground trash collectors becomes a hero.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2014-09-26",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755400149.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                17,
+                15
+            ],
+            "studios": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 21,
+        "fields": {
+            "title": "Kubo and the Two Strings",
+            "description": "A young storyteller embarks on a quest armed with a magic shamisen.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2016-08-19",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755400174.jpg",
+            "is_published": true,
+            "genres": [
+                16,
+                11,
+                15
+            ],
+            "studios": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 22,
+        "fields": {
+            "title": "Missing Link",
+            "description": "Explorer Sir Lionel Frost helps Mr. Link find his long-lost relatives.",
+            "type": 2,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2019-04-12",
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755400247.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                8,
+                17
+            ],
+            "studios": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 23,
+        "fields": {
+            "title": "Wildwood",
+            "description": "Laika’s upcoming stop-motion fantasy adventure based on the novel by Colin Meloy.",
+            "type": 2,
+            "status": 3,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": null,
+            "end_year": null,
+            "number_of_seasons": null,
+            "number_of_series": null,
+            "cover": "covers/temp_1755400334.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                15
+            ],
+            "studios": [
+                9
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 24,
+        "fields": {
+            "title": "Gravity Falls",
+            "description": "Twins Dipper and Mabel unravel supernatural mysteries in a small town.",
+            "type": 1,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2012-06-15",
+            "end_year": "2016-02-15",
+            "number_of_seasons": 2,
+            "number_of_series": 40,
+            "cover": "covers/temp_1755400364.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                8,
+                15
+            ],
+            "studios": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 25,
+        "fields": {
+            "title": "DuckTales (2017)",
+            "description": "Rebooted adventures of Scrooge McDuck and his grandnephews.",
+            "type": 1,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2017-08-12",
+            "end_year": "2021-03-15",
+            "number_of_seasons": 3,
+            "number_of_series": 69,
+            "cover": "covers/temp_1755400390.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                8,
+                17
+            ],
+            "studios": [
+                4
+            ]
+        }
+    },
+    {
+        "model": "main.media",
+        "pk": 26,
+        "fields": {
+            "title": "The Owl House",
+            "description": "A teen discovers a portal to a magical realm and learns witchcraft.",
+            "type": 1,
+            "status": 1,
+            "rating": 7.0,
+            "number_of_ratings": 1,
+            "start_year": "2020-01-10",
+            "end_year": "2023-04-08",
+            "number_of_seasons": 3,
+            "number_of_series": 43,
+            "cover": "covers/temp_1755400490.jpg",
+            "is_published": true,
+            "genres": [
+                11,
+                8,
+                15
+            ],
+            "studios": [
+                4
+            ]
+        }
+    }
+]

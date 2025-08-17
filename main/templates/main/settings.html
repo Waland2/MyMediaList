@@ -1,0 +1,51 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Settings {{owner_user.username}}
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/settings.css' %}">
+    <script src="{% static 'main/js/settings.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <script>
+        let settings = JSON.parse('{{ settings|escapejs }}');
+    </script>
+    <main>
+        <span class="page-heading">User {{owner_user.username}}</span>
+
+        <div class="ps-content">
+            <div class="settings-list">
+                <span class="heading">Settings</span>
+                <div class="cbox">
+                    <input id="is_list_public" class="substituted" type="checkbox" aria-hidden="true" />
+                    <label for="is_list_public">Public list</label>
+                </div>
+                <div class="cbox">
+                    <input id="is_cover_in_list" class="substituted" type="checkbox" aria-hidden="true" />
+                    <label for="is_cover_in_list">Show covers of works in list</label>
+                </div>
+
+                <button id="save-settings" onclick="saveSetting()">Save</button>
+                <span class="success-save" style="color: rgb(0, 99, 0); display: none;">Settings saved</span>
+            </div>
+
+            <div class="profile">
+                <span class="heading">Profile</span>
+                <div class="user-info">
+                    <span class="p-key">Username:</span>
+                    <span class="p-value">{{owner_user.username}}</span>
+                    <br>
+                    <span class="p-key">Email:</span>
+                    <span class="p-value">{{owner_user.email}}</span>
+                    <br>
+                    <span class="p-key">Registration date:</span>
+                    <span class="p-value">{{owner_user.date_joined}}</span>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

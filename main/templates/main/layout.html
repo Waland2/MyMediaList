@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="icon" href="{% static 'main/images/favicon.ico' %}" type="image/x-icon">
+    <script src="{% static 'main/js/main.js' %}"></script>
+    <script src="{% static 'main/js/js.cookie.min.js' %}"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<div id="shadscreen" class="" onclick="cancelSearch()"></div>
+<body>
+
+    <div class="mymedialist">
+        <header>
+            <div class="header-content">
+                
+                <div class="logo-and-search">
+                    <a href="{% url 'home' %}" class="logo-container">
+                         <h2>MyMediaList</h2>
+                    </a>
+                    
+                    <span class="search-start-btn" onclick="showSearchInput()">
+                        <img src="{% static 'main/icons/magnifying-glass.svg' %}" class="" width="22px" height="22px" alt="">
+                    </span>
+                    <div class="search-block">
+                        
+                        <div class="search-and-icon">
+                            <label for="search">
+                                <img src="{% static 'main/icons/search.svg' %}" class="search-icon" alt="">
+                                <input id="search" type="text" name="search" placeholder="Search on the site..." onfocus="showShadowScreen()" oninput="getSearchResult(event)" onkeydown="searchKeyDown(event)">
+                                <img src="{% static 'main/icons/cancel.svg' %}" class="cancel-icon" alt="clear" onclick="cleanSearch()">
+                            </label>
+                        </div>
+                        
+                        <div class="searched-container">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                {% if request.user.is_authenticated %}
+                <div class="usernavbar">
+                    <a class="profile" href="/settings/{{request.user.username}}">   
+                        <img class="nav-icon" src="{% static 'main/icons/profile.svg' %}" alt=""><span>
+                            {{request.user}}
+                        </span>
+                        <img class="profile-arrow nav-icon" src="{% static 'main/icons/arrow.svg' %}" alt="">
+                    </a>
+
+                    <div class="hidbar">
+                        <a class="hidlink mylist" href="{% url 'userlist' username=request.user %}">
+                            <img class="nav-icon" src="{% static 'main/icons/toonlist.svg' %}" alt="">My List
+                        </a>
+                        <a class="hidlink settings" href="/settings/{{request.user.username}}">  
+                            <img class="nav-icon" src="{% static 'main/icons/settings.svg' %}" alt="">Settings
+                        </a>
+                        <a class="hidlink logout" href="{% url 'logout' %}">   
+                            <img class="nav-icon" src="{% static 'main/icons/logout.svg' %}" alt="">Log Out
+                        </a>
+                        {% if request.user.is_superuser %}
+                            <a class="hidlink admin-panel" href="/admin">Admin Panel</a>
+                        {% endif %}
+                    </div>   
+                    
+                </div>
+                {% else %}
+                <div class="auth-block">
+                    <a id="login" href="{% url 'login' %}">Log In</a>
+                    <a id="register" href="{% url 'register' %}">Sign In</a>
+                </div>
+                {% endif %}
+            </div>
+        </header> 
+        {% block content %} 
+        {% endblock %}
+    </div>
+
+
+    <script>
+        var userNotifications = [];
+        "{% for msg in messages %}"
+        userNotifications.push(["{{msg}}", "{{msg.tags}}"]);
+        "{% endfor %}"
+
+        for (var i = 0; i < userNotifications.length; ++i) {
+            var notif = userNotifications[i];
+            notification(notif[0], notif[1]);
+        }
+
+        userAuth = false
+        "{% if request.user.is_authenticated %}"
+        userAuth = true
+        "{% endif %}"
+
+        document.querySelectorAll(".auth-error").forEach(el => {
+            el.addEventListener("click", () => {
+                if (!userAuth) {
+                    notification('To do this, log in to your account.', 'error')
+                }
+            })
+        })
+    </script>
+   
+</body>
+</html>

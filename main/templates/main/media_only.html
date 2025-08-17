@@ -1,0 +1,118 @@
+{% load static %}
+{% load main_tags %}
+
+<div class="page-nav">
+
+    <span class="p-prev">
+        {% if page_obj.has_previous %}
+            <a href="?{% query_transform page=page_obj.previous_page_number %}">← Back</a>
+        {% else %}
+            <span style="margin-right: 5px; color: gray; ">← Back</span>  
+        {% endif %}
+    </span>
+
+    <span class="p-now">
+        Page <span class="now-number">{{page_obj.number}}</span>
+        of {{page_obj.paginator.num_pages}}
+    </span>
+
+    <span class="p-next">
+        {% if page_obj.has_next %}
+            <a href="?{% query_transform page=page_obj.next_page_number %}">Next →</a>
+        {% else %}
+            <span style="margin-right: 5px; color: gray; ">Next →</span>  
+        {% endif %}
+    </span>
+</div>
+<div class="media-entries">
+    {% for cart in page_obj %}  
+    <article class="c-block">
+        <div class="tooltip-content">
+            <span class="tooltip-title">{{ cart.title }}</span>
+            <p class="truncated-text">{{ cart.description }}</p> 
+    
+            <div class="line">
+                <span class="info-type">Type:</span>
+                <span class="info-ans">{{cart.type.name}}</span>
+                <span class="info-ans status-{{cart.status.id}}">{{cart.status.name}}</span>
+            </div>
+                
+            {% if cart.genres %}
+            <div class="line">
+                <span class="info-type">Genres:</span>
+                <span class="info-ans">
+                    {% for g in cart.genres.all %}
+                        <a href="{{g.get_absolute_url}}" class="gen">{{g.name}}</a>
+                    {% endfor %}
+                </span>
+            </div>
+            {% endif %}
+    
+            {% if cart.studios %}
+            <div class="line">
+                <span class="info-type">Studio:</span>
+                <span class="info-ans">
+                    {% with stud=cart.studios.all|first %}
+                    <a href="{{stud.get_absolute_url}}" class="gen">{{ stud }}</a>
+                    {% endwith %}
+                </span>
+            </div>
+            {% endif %}
+
+            {% if cart.rating %}
+                <article class="score">
+                    Rating: <span class="score-text">{{ cart.rating|stringformat:".2f" }}</span>
+                </article>
+            {% endif %}
+    
+            <div class="dropshadow">
+                
+            </div>
+        </div>
+        <div class="overflow-block">
+    
+            <a href="{{ cart.get_absolute_url }}" class="c-link">
+                
+                {% if cart.cover %}
+                <img class="c-cover" src="{{cart.cover.url}}" alt="Cover">
+                {% else %}
+                <img class="c-cover" src="{% static 'main/images/covernotfound.png' %}" alt="Cover">
+                {% endif %}
+                <span class="c-desc">
+                    <span class="c-name">{{ cart.title }}</span>
+                    <span class="c-foot">
+                        <p>{{ cart.type.name }}</p>
+                        <p>{{ cart.start_year.year }}</p>
+                    </span>
+                </span>
+            </a>
+    
+        </div>
+    
+    </article> 
+    {% endfor %}
+</div>
+
+<div class="page-nav">
+
+    <span class="p-prev">
+        {% if page_obj.has_previous %}
+            <a href="?{% query_transform page=page_obj.previous_page_number %}">← Back</a>
+        {% else %}
+            <span style="margin-right: 5px; color: gray; ">← Back</span>  
+        {% endif %}
+    </span>
+
+    <span class="p-now">
+        Page <span class="now-number">{{page_obj.number}}</span>
+        of {{page_obj.paginator.num_pages}}
+    </span>
+
+    <span class="p-next">
+        {% if page_obj.has_next %}
+            <a href="?{% query_transform page=page_obj.next_page_number %}">Next →</a>
+        {% else %}
+            <span style="margin-right: 5px; color: gray; ">Next →</span>  
+        {% endif %}
+    </span>
+</div>

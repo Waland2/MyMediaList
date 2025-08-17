@@ -1,0 +1,34 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Add Item{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'editor/css/media_form.css' %}">
+<script src="{% static 'editor/js/media_form.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<main>  
+    <span class="page-heading">Add New Item</span>
+    <form method="post" class="media-item-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        {% for i in form %}
+        
+        <p class="label">
+            {{i.label}}
+        </p>
+        <p class="input">
+            {{i}}          
+        </p>
+        <p class="input-errors">
+            {{i.errors}}
+        </p>
+        {% endfor %}
+    
+        <button type="submit" class="submit-btn">Save</button>
+    </form>
+
+</main>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}Registration{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'main/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <form action="." method="post" class="regform-block">
+        <div class="inputs-block">
+            <h3>Registration</h3>
+            {% for i in reg_form %}
+            <div class="form-line">
+                
+                <p class="label">
+                    {{i.label}}
+                </p>
+                <p class="input">
+                    {{i}}          
+                </p>
+                <p class="input-errors">
+                    {{i.errors}}
+                </p>
+            </div>
+            {% endfor %}   
+            
+            <div class="s-block">
+                <input class="submit-reg" type="submit" value="Create account!">
+            </div>
+            
+            <hr>
+
+            <a class="link" href="{% url 'login' %}">Already have an account?</a>
+            
+        </div>
+        
+        {% csrf_token %}
+        
+    </form>
+
+{% endblock %}

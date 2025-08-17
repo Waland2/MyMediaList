@@ -1,0 +1,23 @@
+{% extends "admin/change_form.html" %}
+
+{% block object-tools %}
+    {{ block.super }}
+{% if original.pk %}
+    {% if original.pk %}
+        <form action="{% url 'acceptrequest' original.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="button">Accept</button>
+        </form>
+
+        <form action="{% url 'rejectrequest' original.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="button">Reject</button>
+        </form>
+
+        <form action="{% url 'blockuser' original.user.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="button">Ban user</button>
+        </form>
+    {% endif %}
+{% endif %}
+{% endblock %}

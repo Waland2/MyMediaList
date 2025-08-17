@@ -1,0 +1,155 @@
+.media-item-form {
+    width: 100%;
+    max-width: 700px; 
+    margin: 0 auto; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 80px;
+}
+
+.media-item-form h1, .media-item-form h2, .media-item-form h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"], input[type="number"], input[type="date"], textarea, select {
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, textarea:focus, select:focus {
+    border-color: #007bff; 
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical; 
+}
+
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 10px;
+}
+
+#id_studios {
+    height: 200px;
+}
+
+label {
+    font-size: 1em;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.checkbox-select-multiple {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.checkbox-select-multiple label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    display: block;
+    margin-top: 10px;
+}
+
+.errorlist {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.errorlist li {
+    font-size: 0.9em;
+}
+
+button[type="submit"], input[type="submit"] {
+    display: block;
+    width: 20%;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+}
+
+button[type="submit"]:hover, input[type="submit"]:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:active, input[type="submit"]:active {
+    background-color: #004085;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:focus, input[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: #007bff;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"]::file-selector-button:active {
+    background-color: #004085;
+}
+
+
+#search {
+    margin-bottom: 0px;
+}

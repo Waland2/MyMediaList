@@ -1,0 +1,80 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}List of Media / {{owner_user.username}}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'myList/css/medialist.css' %}">
+    <script src="{% static 'myList/js/medialist.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<script>
+    let statusID = 0;
+    statusID = {{watch_status}};
+</script>
+<main>
+    <span class="page-heading">List of Media / {{owner_user.username}}</span>
+    {% if owner.is_list_public or owner_user.id == request.user.id %}
+    {% with is_cover_in_list=owner.is_cover_in_list %}
+    <div class="ml-content">
+
+        <div class="select-status">
+            <span class="status-opt" data-watch-status="0">All</span>
+            <span class="status-opt" data-watch-status="2">Watching</span>
+            <span class="status-opt" data-watch-status="1">Completed</span>
+            <span class="status-opt" data-watch-status="5">Planned</span>
+            <span class="status-opt" data-watch-status="3">On Hold</span>
+            <span class="status-opt" data-watch-status="4">Dropped</span>
+        </div>
+
+        <hr style="margin-bottom: 5px;">
+        <table class="mylist">
+            <tr class="table-head">
+              <td style="width: 0;" data-sort-type="reset">#</td>
+                {% if is_cover_in_list %}
+                <td style="width: 0;" data-sort-type="reset">Cover</td>
+                {% endif %}
+                <td data-sort-type="{% if sort_type == 'media_item' %}-{% endif %}media_item">
+                    Title{% if sort_type == 'media_item' %}<img class="sort-arrow" src="{% static 'main/icons/arrow.svg' %}" alt="">
+                    {% elif sort_type == '-media_item' %}<img class="sort-arrow reverse" src="{% static 'main/icons/arrow.svg' %}" alt="">
+                    {% endif %}
+                </td>
+                <td data-sort-type="{% if sort_type == 'score' %}-{% endif %}score" style="width: 0;">
+                    Score{% if sort_type == 'score' %}<img class="sort-arrow" src="{% static 'main/icons/arrow.svg' %}" alt="">{% elif sort_type == '-score' %}<img class="sort-arrow reverse" src="{% static 'main/icons/arrow.svg' %}" alt="">
+                    {% endif %}
+                </td>
+            </tr> 
+
+            {% for i in owner_list %}   
+                <tr class="table-content">
+                    {% with cart=i.media_item %}
+                    <td title="{{i.watch_status}}" class="t-index t-status{{i.watch_status.id}}"></td>
+                    {% if is_cover_in_list %}
+                    <td class="t-cover"><img height="71px" src="{{i.media_item.cover.url}}" alt=""></td>
+                    {% endif %}
+                    <td class="t-title">
+                        <div>
+                            <a href="{{cart.get_absolute_url}}">{{cart.title}}</a>
+                            <br>
+                            <span class="t-comment">{{i.comment}}</span>
+                        </div>
+                    </td>
+                    <td class="t-score">
+                        {% if i.score.value %}
+                            {{i.score.value}}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    {% endwith %}
+                </tr>
+            {% endfor %}
+          </table>
+    </div>
+    {% endwith %}
+    {% else %}
+        <div class="privat-list-div">The owner of this list has decided to make it private.</div>
+    {% endif %}
+</main>
+{% endblock %}

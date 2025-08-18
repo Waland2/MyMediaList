@@ -7,7 +7,7 @@ A web app for cataloging and tracking media like shows, films, or anything else.
 | Area           | Technologies                                            |
 | -------------- | ------------------------------------------------------- |
 | Frontend       | Django Templates                                        |
-| Backend        | Django 5.1, Celery 5.4                                  |
+| Backend        | Django 5.1, Celery                                      |
 | Database       | MySQL 8, Redis 7                                        |
 | Infrastructure | Docker, Docker Compose, Nginx                           |
 
@@ -50,7 +50,7 @@ docker exec -it mml_django python manage.py loaddata fixtures/static_data.json f
 ```bash
 docker compose up -d --build
 ```
-4) Get ssl certificates:
+4) Get SSL certificates:
 ```bash
    docker compose run --rm certbot certonly --webroot \
      --webroot-path=/var/www/certbot \
@@ -61,7 +61,7 @@ docker compose up -d --build
 ```bash
    docker compose restart nginx
 ```
-6) Create superuser and load fixtures:
+6) Create super user and load fixtures:
 
 ```bash
 docker exec -it mml_django python manage.py createsuperuser

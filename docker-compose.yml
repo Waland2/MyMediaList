@@ -53,8 +53,8 @@ services:
     volumes:
       - ./static:/static:ro
       - ./media:/media:ro
-      - aniton_certbot-etc:/etc/letsencrypt:ro
-      - aniton_certbot-www:/var/www/certbot:ro
+      - certbot-etc:/etc/letsencrypt:ro
+      - certbot-www:/var/www/certbot:ro
     depends_on:
       - django
     networks:
@@ -63,8 +63,8 @@ services:
     image: certbot/certbot
     container_name: mml_certbot
     volumes:
-      - aniton_certbot-etc:/etc/letsencrypt
-      - aniton_certbot-www:/var/www/certbot
+      - certbot-etc:/etc/letsencrypt
+      - certbot-www:/var/www/certbot
   celery_worker:
     build: .
     container_name: mml_celery_worker
@@ -101,11 +101,10 @@ services:
 
 volumes:
   mysql_data:
+  certbot-etc:
   certbot-var:
-  aniton_certbot-etc:
-    external: true
-  aniton_certbot-www:
-    external: true
+  certbot-www:
 
+  
 networks:
   dev:
